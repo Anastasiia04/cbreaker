@@ -1,4 +1,4 @@
-require "cbreaker/version"
+require 'cbreaker/version'
 
 module Cbreaker
   class Error < StandardError; end

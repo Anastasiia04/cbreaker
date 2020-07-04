@@ -90,16 +90,6 @@ class Game
     @secret_hash.select { |_, value| @user_hash.value? value }.size.times { @count_minus += 1 }
   end
 
-  def game_end?
-    return true if @count_plus == 4 || @attempts.zero?
-    return false if @attempts.positive?
-  end
-
-  def result
-    return true if @count_plus == 4
-    return false if @attempts.zero?
-  end
-
   def save?(string)
     hash = {  name: @user_name, difficult: @difficulty,
               total_attempts: @total_attempts, attempts: @attempts,
@@ -114,9 +104,5 @@ class Game
     @count_plus = 0
     return true if string == 'yes'
     return false if string == 'no'
-  end
-
-  def exit?(string)
-    return puts 'end of game, bye' unless string == 'exit'
   end
 end
